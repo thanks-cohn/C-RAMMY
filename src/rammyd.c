@@ -136,7 +136,8 @@ broadcast_addr.sin_addr.s_addr = inet_addr(target_ip);
     printf("C-RAMMY v0 NODE ONLINE\n");
     printf("=====================================\n");
     printf("Node: %s\n", hostname);
-    printf("Broadcast Port: %d\n", RAMMY_PORT);\n    printf("Broadcast Target: %s\n", target_ip);
+    printf("Broadcast Port: %d\n", RAMMY_PORT);
+    printf("Broadcast Target: %s\n", target_ip);
     printf("=====================================\n");
     printf("\n");
 

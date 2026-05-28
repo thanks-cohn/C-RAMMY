@@ -1,0 +1,190 @@
+```text id="r8n2w5"
+RAMMY DISTRIBUTED FABRIC VALIDATION LADDER
+
+The purpose of these tests is not merely to prove that RAMMY can
+"distribute jobs."
+
+The purpose is to progressively demonstrate that:
+
+    memory
+    process identity
+    model state
+    execution locality
+    fault recovery
+    distributed residency
+
+are all behaving as one coordinated computational organism.
+
+Each stage acts as both:
+    a milestone
+and:
+    a smoke test for future large-scale AI workloads.
+
+
+[01] Fabric discovery
+     All nodes automatically discover and map each other.
+
+[02] Unified memory report
+     RAMMY reports total pooled fabric RAM across all nodes.
+
+[03] Remote page allocation
+     One node allocates memory physically resident on another node.
+
+[04] Remote page read/write
+     Nodes transparently read and write remote pages.
+
+[05] Distributed object allocation
+     A single object spans multiple physical machines.
+
+[06] Objects larger than one node
+     RAMMY allocates memory larger than any individual machine can hold.
+
+[07] Page ownership tracking
+     Every page has explicit ownership and residency metadata.
+
+[08] Replicated pages
+     Pages exist redundantly across nodes.
+
+[09] Replica verification
+     RAMMY verifies page integrity across replicas.
+
+[10] Node death detection
+     RAMMY detects dead or unreachable nodes automatically.
+
+[11] Data survival after node death
+     Replicated pages survive node failure.
+
+[12] Automatic re-replication
+     RAMMY restores redundancy after failures.
+
+[13] Topology awareness
+     RAMMY maps bandwidth and latency between nodes.
+
+[14] Locality-aware placement
+     Frequently accessed pages migrate closer to active computation.
+
+[15] Hot/cold page classification
+     RAMMY tracks memory heat over time.
+
+[16] Hot page migration
+     Frequently used pages dynamically relocate.
+
+[17] Cold page relocation
+     Cold pages move away from premium memory regions.
+
+[18] Distributed page cache
+     Nodes cache remote pages intelligently.
+
+[19] Cache invalidation correctness
+     Stale remote copies invalidate correctly after writes.
+
+[20] Lease-based ownership
+     RAMMY prevents conflicting distributed writes.
+
+[21] Distributed allocator
+     Applications request fabric-wide allocations directly.
+
+[22] Memory pressure balancing
+     RAMMY redistributes allocations when nodes become saturated.
+
+[23] Distributed checkpointing
+     Runtime state snapshots across the fabric.
+
+[24] Distributed checkpoint restore
+     Restore distributed state after restart.
+
+[25] Process migration
+     A live process moves between nodes.
+
+[26] Process identity continuity
+     Migrated processes retain identity and state.
+
+[27] Execution locality optimization
+     Processes relocate toward memory-heavy regions.
+
+[28] Failure-transparent execution
+     Running workloads survive node failure.
+
+[29] Coordinator failover
+     Cluster leadership transfers automatically.
+
+[30] Distributed file residency
+     Large files remain distributed across pooled memory.
+
+[31] Large embedding residency
+     Massive embedding indexes exceed single-node capacity.
+
+[32] Retrieval system over pooled memory
+     Distributed RAG-style retrieval runs across fabric memory.
+
+[33] Distributed tensor residency
+     Tensor shards remain resident across nodes.
+
+[34] Tensor placement optimization
+     RAMMY places tensors according to topology and locality.
+
+[35] Activation passing
+     Nodes exchange compact activations instead of entire model weights.
+
+[36] Distributed KV cache
+     Transformer KV cache spans multiple nodes.
+
+[37] Long-context KV growth
+     Context windows exceed single-node memory limits.
+
+[38] Toy transformer inference
+     A small transformer executes across multiple nodes.
+
+[39] Layer pipeline execution
+     Transformer layers execute in distributed stages.
+
+[40] Distributed model loading
+     A model larger than one node loads successfully.
+
+[41] Quantized 70B model residency
+     A real 70B-class model resides across pooled fabric memory.
+
+[42] Stable token streaming
+     Distributed inference streams tokens continuously.
+
+[43] Inference under memory pressure
+     RAMMY continues inference while relocating cold memory.
+
+[44] Mid-generation node failure
+     Kill a node during inference.
+
+[45] Inference recovery
+     Generation resumes using replicas/checkpoints.
+
+[46] Distributed Stable Diffusion residency
+     Diffusion weights distribute across pooled memory.
+
+[47] Distributed image generation pipeline
+     Text encoder, UNet, and VAE execute across fabric-connected nodes.
+
+[48] Distributed video generation prototype
+     Multi-frame generation spans pooled memory fabric.
+
+[49] 1TB pooled memory demonstration
+     Multiple ordinary machines expose terabyte-scale unified memory.
+
+[50] Flagship demonstration
+     5 recycled desktops
+     25GbE
+     quantized 70B model
+     stable inference
+     live node failover
+     distributed residency
+     pooled memory
+     topology-aware execution
+
+     This demonstrates that RAMMY is not merely coordinating machines.
+
+     It demonstrates that:
+         memory is pooled
+         execution is migratory
+         model state is distributed
+         failures are survivable
+         and the fabric behaves as one computational organism.
+
+```

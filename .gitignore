@@ -1,0 +1,7 @@
+rammyd
+*.o
+*.a
+*.so
+*.log
+logs/
+build/

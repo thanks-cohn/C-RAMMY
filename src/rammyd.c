@@ -90,6 +90,7 @@ static uint64_t get_uptime_sec(void)
 
 int main(void)
 {
+    setvbuf(stdout, NULL, _IOLBF, 0);
     int sockfd;
 
     struct sockaddr_in broadcast_addr;

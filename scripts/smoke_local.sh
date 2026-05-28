@@ -13,7 +13,7 @@ CTL_PID=$!
 sleep 1
 
 echo "[SMOKE] starting rammyd heartbeat daemon"
-timeout 5s ./rammyd > logs/smoke_rammyd.log 2>&1 || true
+RAMMY_BCAST=127.0.0.1 timeout 5s ./rammyd > logs/smoke_rammyd.log 2>&1 || true
 
 CTL_STATUS=0
 wait "$CTL_PID" || CTL_STATUS=$?

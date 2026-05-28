@@ -49,8 +49,8 @@ static void update_node(const rammy_heartbeat_t *hb, const char *ip) {
 
         idx = node_count++;
         memset(&nodes[idx], 0, sizeof(nodes[idx]));
-        strncpy(nodes[idx].node_name, hb->node_name, sizeof(nodes[idx].node_name) - 1);
-        strncpy(nodes[idx].ip, ip, sizeof(nodes[idx].ip) - 1);
+        snprintf(nodes[idx].node_name, sizeof(nodes[idx].node_name), "%s", hb->node_name);
+        snprintf(nodes[idx].ip, sizeof(nodes[idx].ip), "%s", ip);
 
         printf("[RAMMY JOIN] node=%s ip=%s\n", hb->node_name, ip);
     }

@@ -119,7 +119,13 @@ int main(void)
 
     broadcast_addr.sin_family = AF_INET;
     broadcast_addr.sin_port = htons(RAMMY_PORT);
-    broadcast_addr.sin_addr.s_addr = inet_addr("255.255.255.255");
+    
+const char *target_ip = getenv("RAMMY_BCAST");
+if (!target_ip || target_ip[0] == '\0')
+    target_ip = "255.255.255.255";
+
+broadcast_addr.sin_addr.s_addr = inet_addr(target_ip);
+
 
     char hostname[64];
 
@@ -130,7 +136,7 @@ int main(void)
     printf("C-RAMMY v0 NODE ONLINE\n");
     printf("=====================================\n");
     printf("Node: %s\n", hostname);
-    printf("Broadcast Port: %d\n", RAMMY_PORT);
+    printf("Broadcast Port: %d\n", RAMMY_PORT);\n    printf("Broadcast Target: %s\n", target_ip);
     printf("=====================================\n");
     printf("\n");
 
@@ -140,7 +146,7 @@ int main(void)
 
         memset(&hb, 0, sizeof(hb));
 
-        strncpy(hb.node_name, hostname, sizeof(hb.node_name) - 1);
+        snprintf(hb.node_name, sizeof(hb.node_name), "%s", hostname);
 
         hb.total_ram_mb = get_total_ram_mb();
         hb.free_ram_mb = get_free_ram_mb();

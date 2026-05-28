@@ -15,7 +15,13 @@ sleep 1
 echo "[SMOKE] starting rammyd heartbeat daemon"
 timeout 5s ./rammyd > logs/smoke_rammyd.log 2>&1 || true
 
-wait "$CTL_PID" || true
+CTL_STATUS=0
+wait "$CTL_PID" || CTL_STATUS=$?
+
+if [ "$CTL_STATUS" -ne 0 ] && [ "$CTL_STATUS" -ne 124 ]; then
+    echo "[SMOKE] rammyctl failed with status $CTL_STATUS"
+    exit 1
+fi
 
 echo "[SMOKE] checking daemon log"
 grep -q "C-RAMMY v0 NODE ONLINE" logs/smoke_rammyd.log
